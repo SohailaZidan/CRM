@@ -1,0 +1,43 @@
+<div class="container mx-auto  px-5">
+    <button 
+    routerLink="/user/add"
+    class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-2">
+    <i class="fa-solid fa-plus"></i>
+      </button>
+    <div class="overflow-x-auto rounded-lg">
+        <table class="min-w-full bg-white rounded-lg shadow-md capitalize font-bold ">
+          <thead class="bg-gray-100 text-gray-700 text-sm ">
+            <tr>
+              <th class="py-3 px-5 text-left">#</th>
+              <th class="py-3 px-5 text-left">name</th>
+              <th class="py-3 px-5 text-left">email</th>
+              <th class="py-3 px-5 text-left">Role</th>
+              <th class="py-3 px-5 text-left"> operation </th>
+            </tr>
+          </thead>
+          <tbody class="text-gray-600 text-sm divide-y divide-gray-200">
+            @for (user of users(); track $index) {
+                <tr >
+                    <td class="py-3 px-5">{{ $index + 1 }}</td>
+                    <td class="py-3 px-5">{{ user.name }}</td>
+                    <td class="py-3 px-5">{{ user.email }}</td>
+                    <td class="py-3 px-5">{{ user.role }}</td>
+                    <td class="py-3 px-5">
+                      <button class="text-blue-500 hover:text-blue-700 font-medium mr-2"
+                      routerLink="/user/edit/{{user.id}}"
+                      >
+                      <i class="fa-solid fa-pen-to-square"></i>
+                    </button>
+                      <button (click)="deleteUser(user.id)" class="text-red-500 hover:text-red-700 font-medium">
+                        <i class="fa-solid fa-trash"></i>
+                      </button>
+                    </td>
+                  </tr>
+            }
+          
+          </tbody>
+        </table>
+      </div>
+      
+</div>
+

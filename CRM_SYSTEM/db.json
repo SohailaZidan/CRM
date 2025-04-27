@@ -1,0 +1,22 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Sohaila Zidan",
+      "email": "email@example.com",
+      "role": "admin"
+    },
+    {
+      "id": "2",
+      "name": "razan",
+      "email": "razan@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "ef7a",
+      "name": "mohamed hesham",
+      "email": "medo@gmail.com",
+      "role": "admin"
+    }
+  ]
+}

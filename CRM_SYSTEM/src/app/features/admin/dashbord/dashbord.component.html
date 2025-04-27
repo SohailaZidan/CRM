@@ -1,0 +1,73 @@
+<nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 ">
+    <div class="px-3 py-3 lg:px-5 lg:pl-3">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center justify-start rtl:justify-end">
+          <button (click)="toggleSidebar()" type="button"
+            class="inline-flex items-center p-2 text-sm text-mainColor rounded-lg lg:hidden">
+            <span class="sr-only">Open sidebar</span>
+            <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+              <path clip-rule="evenodd" fill-rule="evenodd"
+                d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z">
+              </path>
+            </svg>
+          </button>
+  
+          <a class="ms-2 md:me-24 hidden sm:block text-xl font-bold" >
+           <span class="text-mainColor ">
+            Go
+           </span>
+           <span>
+            Manage
+           </span>
+          </a>
+        </div>
+  
+      </div>
+    </div>
+  </nav>
+  
+  @if (isSidebarOpen) {
+  <aside id="logo-sidebar" #sidebar [class.translate-x-full]="!isSidebarOpen" @openSidebar
+    (click)="stopPropagation($event)"
+    class="fixed border-r-2 top-0 left-0 z-40 w-64 h-screen pt-20 -transition-transform bg-white pr-1 "
+    aria-label="Sidebar">
+    <div class="h-full px-5 pb-4 overflow-y-auto bg-white ">
+      <!--  -->
+      <div class="mb-5 rounded-xl border bg-white shadow-sm sm:mx-auto sm:max-w-xl">
+        <div class="py-2 cursor-pointer" routerLink="/Admin/MyProfile">
+          <div class="flex items-center gap-2 px-2 pr-5">
+            <span  class="text-[30px] text-mainColor" >
+              <i class="fa-solid fa-circle-user "></i>
+            </span>
+            <div class="mr-4 w-56">
+              <p class="text-gray-800 font-almarai text-xs font-bold">hello ,</p>
+              <p class="text-slate-600 font-almarai text-sm font-bold">
+               sohaila hesham 
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--  -->
+      <ul class="list-items space-y-2 font-medium  capitalize">
+        @for (menu of menuItems; track $index) {
+            <li>
+                <a (click)="menu.action()"
+                  class="flex text-md   items-center p-2 text-gray-900 rounded-lg cursor-pointer  hover:bg-lightColor  group">
+                  <span><i [class]="menu.icon "></i></span>
+                  <span class="flex-1 ms-3 whitespace-nowrap"> {{menu.title}}  </span>
+                </a>
+              </li>
+        }
+      
+      </ul>
+    </div>
+  </aside>
+  }
+  
+  
+  <div class="p-4 lg:ml-64">
+    <div class="container mt-14">
+        <app-user-list></app-user-list>
+    </div>
+  </div>
