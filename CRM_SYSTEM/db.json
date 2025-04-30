@@ -8,12 +8,30 @@
     },
     {
       "id": "2",
-      "name": "razan",
+      "name": "Razan Hesham",
       "email": "razan@gmail.com",
       "role": "user"
     },
     {
       "id": "ef7a",
+      "name": "mohamed hesham",
+      "email": "medo@gmail.com",
+      "role": "admin"
+    },
+    {
+      "id": "3",
+      "name": "Sohaila Zidan",
+      "email": "email@example.com",
+      "role": "admin"
+    },
+    {
+      "id": "4",
+      "name": "Razan Hesham",
+      "email": "razan@gmail.com",
+      "role": "user"
+    },
+    {
+      "id": "5",
       "name": "mohamed hesham",
       "email": "medo@gmail.com",
       "role": "admin"

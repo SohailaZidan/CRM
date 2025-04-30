@@ -1,15 +1,16 @@
 import { Component, ChangeDetectionStrategy, computed, effect, signal } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgClass } from '@angular/common';
 import { Store } from '@ngrx/store';
 import * as UsersActions from '../../../../../store/user/users.actions';
 import * as UsersSelectors from '../../../../../store/user/users.selectors';
 import { User } from '../../../../../core/services/user';
 import { RouterLink } from '@angular/router';
+import { PageTitleComponent } from '../../../../../shared/components/page-title/page-title.component';
 
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [ RouterLink ],
+  imports: [ RouterLink , NgClass , PageTitleComponent ],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush

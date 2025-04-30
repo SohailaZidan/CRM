@@ -1,0 +1,77 @@
+<div class="container mx-auto px-5">
+  <app-page-title></app-page-title>
+  <div class="p-6 space-y-6">
+    <div *ngIf="isLoading" class="flex items-center justify-center h-64">
+      <span class="text-gray-500 animate-pulse text-xl">Loading live data...</span>
+    </div>
+  
+    <div *ngIf="!isLoading">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
+        <!-- Card 1: Total Live Visits -->
+        <div class="bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-2xl p-6 flex items-center gap-4">
+          <div class="bg-e85d04/10 text-e85d04 p-3 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 12l2-2 4 4 8-8 4 4M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2v-7"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500">Live Visits</p>
+            <h2 class="text-2xl font-bold text-e85d04">{{ liveVisits }}</h2>
+          </div>
+        </div>
+      
+        <!-- Card 2: Visits Today -->
+        <div class="bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-2xl p-6 flex items-center gap-4">
+          <div class="bg-blue-500/10 text-blue-500 p-3 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8 7V3M16 7V3M4 11h16M4 19h16M4 15h16"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500">Visits Today</p>
+            <h2 class="text-2xl font-bold text-blue-500">{{ liveVisits }}</h2>
+          </div>
+        </div>
+      
+        <!-- Card 3: Average Visits -->
+        <div class="bg-white/80 backdrop-blur-md border border-gray-200 shadow-lg rounded-2xl p-6 flex items-center gap-4">
+          <div class="bg-green-500/10 text-green-500 p-3 rounded-full">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2"
+                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M3 3v18h18"></path><path d="M18 9l-6 6-4-4"></path>
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm text-gray-500">Avg. Visits</p>
+            <h2 class="text-2xl font-bold text-green-500">{{ liveVisits }}</h2>
+          </div>
+        </div>
+      </div>
+      
+      <div class="w-full overflow-auto border border-gray-200 rounded">
+        <h1 class=" m-5 font-bold text-mainColor text-xl">
+          Live Visits Chart
+        </h1>
+        <ngx-charts-line-chart
+        [view]="[1180, 400]"
+        [scheme]="colorScheme"
+        [results]="visitsData"
+        [xAxis]="true"
+        [yAxis]="true"
+        [autoScale]="true"
+        [timeline]="true"
+        [animations]="true"
+        class="w-full"
+        >
+      </ngx-charts-line-chart>
+      
+      </div>
+      
+      
+    </div>
+  </div>
+  
+</div>
+

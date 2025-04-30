@@ -2,11 +2,12 @@ import { trigger, transition, style, animate } from '@angular/animations';
 import { Component, ElementRef, HostListener, inject, signal, ViewChild } from '@angular/core';
 import { SweetAlertService } from '../../../core/services/sweetalert/sweet.service';
 import { UserListComponent } from "../pages/users/user-list/user-list.component";
+import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-dashbord',
   standalone: true,
-  imports: [UserListComponent],
+  imports: [RouterLink , RouterLinkActive , RouterOutlet],
   templateUrl: './dashbord.component.html',
   styleUrl: './dashbord.component.css',
   animations: [
@@ -33,6 +34,7 @@ export class DashbordComponent {
     {
       title: 'Dashboard',
       icon: 'fa-solid fa-house',
+      route : '/admin/dashboard',
       action: () => {
         this.closeSidebar();
       }
@@ -40,6 +42,7 @@ export class DashbordComponent {
     {
       title: 'Users',
       icon: 'fa-solid fa-users',
+      route : '/admin/users',
       action: () => {
         this.closeSidebar();
       }
@@ -47,6 +50,7 @@ export class DashbordComponent {
     {
       title: 'products',
       icon: 'fa-solid fa-box-archive',
+      route : '/admin/notFound',
       action: () => {
         this.closeSidebar();
       }
@@ -54,6 +58,7 @@ export class DashbordComponent {
     {
       title: 'contact',
       icon: 'fa-solid fa-envelope',
+       route : '/admin/notFound',
       action: () => {
         this.closeSidebar();
       }
@@ -61,6 +66,7 @@ export class DashbordComponent {
      {
       title: 'settings',
       icon: 'fa-solid fa-gear',
+       route : '/admin/notFound',
       action: () => {
         this.closeSidebar();
       }
@@ -68,6 +74,7 @@ export class DashbordComponent {
     {
       title: ' Logout',
       icon: 'fa-solid fa-right-from-bracket',
+       route : '/admin/notFound',
       action: () => {
         this.closeSidebar();
       }
